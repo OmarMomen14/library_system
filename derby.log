@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Nov 04 03:08:05 MYT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016e-32aa-d14b-000005c8f410 
+on database directory /home/omar/NetBeansProjects/LibraryManagmentSystem/database with class loader sun.misc.Launcher$AppClassLoader@33909752 
+Loaded from file:/home/omar/NetBeansProjects/LibraryManagmentSystem/dist/run623773452/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_221-b11
+user.dir=/home/omar/NetBeansProjects/LibraryManagmentSystem
+os.name=Linux
+os.arch=amd64
+os.version=5.0.0-32-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
