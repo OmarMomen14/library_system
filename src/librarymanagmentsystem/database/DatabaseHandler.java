@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 
@@ -59,9 +60,36 @@ public final class DatabaseHandler {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage() + " ........ setupDatabase");
-        } finally {
-        
         }
+    
+    }
+    
+    public ResultSet execQuery (String query) {
+    
+        ResultSet result;
+        
+        try {
+            stat = conn.createStatement();
+            result = stat.executeQuery(query);
+        } catch (SQLException ex) {
+            System.out.println("Error at execQuery:DatabaseHandler"+ex.getLocalizedMessage());
+            return null;   
+        }    
+        return result;
+    }
+    
+    public boolean execAction (String ac) {
+    
+        try {
+            stat = conn.createStatement();
+            stat.execute(ac);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR"+ex.getMessage(), "Error Ocurred", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Exception at execAction:DatabaseHandler" + ex.getLocalizedMessage());
+            return false;
+        }           
+    
     
     }
     
