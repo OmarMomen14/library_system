@@ -23,6 +23,7 @@ public final class DatabaseHandler {
         
         createConnection();
         setupBookTable();
+        setupMemberTable();
     }
     
     void createConnection () {
@@ -35,33 +36,6 @@ public final class DatabaseHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    
-    void setupBookTable () {
-    
-        String TABLE_NAME = "BOOK";
-        
-        try {
-            stat = conn.createStatement();
-            DatabaseMetaData dbm = conn.getMetaData();
-            ResultSet tables = dbm.getTables(null, null, TABLE_NAME.toUpperCase(), null);
-            
-            if(tables.next()) {
-                System.out.println("Table "+ TABLE_NAME + " already exists, Ready for go...");
-            } else {
-                stat.execute("CREATE TABLE " + TABLE_NAME + "("
-                        +"      id varchar (200) primary key,\n"
-                        +"      title varchar (200),\n"
-                        +"      author varchar (200),\n"
-                        +"      publisher varchar (100),\n"
-                        +"      isavail boolean default true"
-                        +" )"
-                );
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage() + " ........ setupDatabase");
-        }
-    
     }
     
     public ResultSet execQuery (String query) {
@@ -90,6 +64,61 @@ public final class DatabaseHandler {
             return false;
         }           
     
+    
+    }
+
+    
+    void setupBookTable () {
+    
+        String TABLE_NAME = "BOOK";
+        
+        try {
+            stat = conn.createStatement();
+            DatabaseMetaData dbm = conn.getMetaData();
+            ResultSet tables = dbm.getTables(null, null, TABLE_NAME.toUpperCase(), null);
+            
+            if(tables.next()) {
+                System.out.println("Table "+ TABLE_NAME + " already exists, Ready for go...");
+            } else {
+                stat.execute("CREATE TABLE " + TABLE_NAME + "("
+                        +"      id varchar (200) primary key,\n"
+                        +"      title varchar (200),\n"
+                        +"      author varchar (200),\n"
+                        +"      publisher varchar (100),\n"
+                        +"      isavail boolean default true"
+                        +" )"
+                );
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage() + " ........ setupDatabase");
+        }
+    
+    }
+    
+    private void setupMemberTable() {
+
+        
+        String TABLE_NAME = "MEMBER";
+        
+        try {
+            stat = conn.createStatement();
+            DatabaseMetaData dbm = conn.getMetaData();
+            ResultSet tables = dbm.getTables(null, null, TABLE_NAME.toUpperCase(), null);
+            
+            if(tables.next()) {
+                System.out.println("Table "+ TABLE_NAME + " already exists, Ready for go...");
+            } else {
+                stat.execute("CREATE TABLE " + TABLE_NAME + "("
+                        +"      id varchar (200) primary key,\n"
+                        +"      name varchar (200),\n"
+                        +"      phone varchar (20),\n"
+                        +"      email varchar (200) )"
+                );
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage() + " ........ setupDatabase");
+        }
+        
     
     }
     
