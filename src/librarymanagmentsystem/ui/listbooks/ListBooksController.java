@@ -60,7 +60,7 @@ public class ListBooksController implements Initializable {
 
     private void loadData() {
 
-        DatabaseHandler handler = new DatabaseHandler();
+        DatabaseHandler handler = DatabaseHandler.getInstance();
         
         
         String qu = "SELECT * FROM BOOK";
