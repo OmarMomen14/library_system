@@ -104,24 +104,29 @@
                            <children>
                               <VBox prefHeight="497.0" prefWidth="693.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="190.0" prefWidth="693.0">
+                                    <HBox fx:id="bookinfo" alignment="CENTER" prefHeight="190.0" prefWidth="693.0" style="-fx-background-color: #e7e7e7;">
                                        <children>
-                                          <TextField promptText="Enter Book ID">
+                                          <TextField fx:id="bookIdInput" onAction="#loadBookInfo" prefHeight="26.0" prefWidth="203.0" promptText="Enter Book ID">
                                              <HBox.margin>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <VBox alignment="CENTER" prefHeight="1370.0" prefWidth="529.0">
+                                          <VBox alignment="CENTER" prefHeight="139.0" prefWidth="171.0">
                                              <HBox.margin>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                              </HBox.margin>
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name" textAlignment="CENTER" wrappingWidth="485.7294921875">
+                                                <Text fx:id="bookNameTF" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name" textAlignment="CENTER" wrappingWidth="264.7294921875">
                                                    <VBox.margin>
                                                       <Insets top="10.0" />
                                                    </VBox.margin>
                                                 </Text>
-                                                <Text layoutX="10.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" textAlignment="CENTER" wrappingWidth="485.7294921875">
+                                                <Text fx:id="authorTF" layoutX="10.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" textAlignment="CENTER" wrappingWidth="440.7294921875">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <Text fx:id="statusTF" layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" textAlignment="CENTER" wrappingWidth="440.7294921875">
                                                    <VBox.margin>
                                                       <Insets top="10.0" />
                                                    </VBox.margin>
@@ -129,25 +134,28 @@
                                              </children>
                                           </VBox>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
                                     </HBox>
-                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="693.0">
+                                    <HBox fx:id="memberinfo" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="693.0" style="-fx-background-color: #e7e7e7;">
                                        <children>
-                                          <TextField promptText="Enter Member ID">
+                                          <TextField fx:id="memberIdInput" onAction="#loadMemberInfo" promptText="Enter Member ID">
                                              <HBox.margin>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <VBox alignment="CENTER" prefHeight="1370.0" prefWidth="529.0">
+                                          <VBox alignment="CENTER" prefHeight="139.0" prefWidth="488.0">
                                              <HBox.margin>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                              </HBox.margin>
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Member Name" textAlignment="CENTER" wrappingWidth="485.7294921875">
+                                                <Text fx:id="memberNameTF" strokeType="OUTSIDE" strokeWidth="0.0" text="Member Name" textAlignment="CENTER" wrappingWidth="359.7294921875">
                                                    <VBox.margin>
                                                       <Insets top="10.0" />
                                                    </VBox.margin>
                                                 </Text>
-                                                <Text layoutX="10.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" textAlignment="CENTER" wrappingWidth="485.7294921875">
+                                                <Text fx:id="contactTF" layoutX="10.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" textAlignment="CENTER" wrappingWidth="327.7294921875">
                                                    <VBox.margin>
                                                       <Insets top="10.0" />
                                                    </VBox.margin>
@@ -155,10 +163,20 @@
                                              </children>
                                           </VBox>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <JFXButton styleClass="setup_button" stylesheets="@mainpage.css" text="Issue" />
+                                          <JFXButton styleClass="setup_button" stylesheets="@mainpage.css" text="Issue">
+                                             <graphic>
+                                                <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../icons/579f78fdb9b069aa17d20cdd_Icon-check-white.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></JFXButton>
                                        </children>
                                     </HBox>
                                  </children>
